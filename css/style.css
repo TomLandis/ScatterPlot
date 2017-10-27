@@ -1,0 +1,83 @@
+body{
+  background-color: #d8d8d8;
+}
+a{
+  text-decoration: none;
+  color: skyblue;
+  background-color: white;
+  border-radius: 16%;
+}
+svg{
+  transition: all  .5s ease-in-out;
+}
+circle{
+  transition: all  .5s ease-in-out;
+}
+
+.clean{
+  fill: green;
+ transitions: all  1s ease-in-out;
+}
+.clean:hover{
+  transitions: all  1s ease-in-out;
+  
+  fill: skyblue;
+}
+.dirty {
+  fill: red;
+   overflow:visible; 
+  transitions: all  1s ease-in-out;
+}
+.dirty:hover {
+ fill: skyblue;
+   overflow:visible; 
+  transitions: all  1s ease-in-out;
+}
+.ax {
+  margin-right: 20px;
+  margin-top: 20px;
+}
+h1, h2, h4, svg{
+  font-family: 'Patua One', cursive;
+  text-align: center;
+}
+#plot{
+  display: flex;
+  justify-content: center;
+   overflow:visible; 
+}
+svg {
+  overflow:visible; 
+}
+.subt{
+  margin-top: -1em;
+}
+#tt{
+  display: none;
+  position: absolute;
+  pointer-events:none;
+  z-index: 2;
+  font-family: 'Patua One', cursive;
+  font-size: 1.5em;
+  background-color: skyblue;
+  opacity: 0.95;
+  margin-top: -20vh;
+  margin-left: -20vh;
+  max-width: 30vw;
+  text-align: center;
+  border-radius: 0 50% 50% 50%;
+  padding-right: 15vh;
+  padding-left: 20vh;
+  padding-top: 20vh;
+  padding-bottom: 15vh;
+  overflow: visible;
+  
+}
+.flexi {
+  display: flex;
+  justify-content: center;
+}
+#credit{
+  margin-top: 50px;
+}
+
