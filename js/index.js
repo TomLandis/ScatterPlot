@@ -26,7 +26,10 @@ function MakeIt(ds) {
   function minBehindFastest (my) {
     return my - 2210;
   }
-  
+  var t = d3.transition()
+    .duration(750)
+    .ease(d3.easeLinear);
+
     var svgWidth = $(window).width();
   var svgHeight = $(window).height();
   let vPad = 200;
@@ -85,19 +88,17 @@ function MakeIt(ds) {
    .data(ds)
    .enter()
    .append("circle")
-  .attr("class", function(d) {
+   .attr("class", function(d) {
  if(d.Doping === "") {
    return "clean"
  } else { return "dirty tooltip"}
   })
-   .attr("cx", function(d) { return hScale(minBehindFastest(d.Seconds)) })
-   .attr("cy", function(d) {
+  .attr("cy", function(d) {
         return scaleY(d.Place);
-   })
-   .transition()
-  .attr("delay", function(d,i) {return 3000 * i})
-  .attr("duration", function(d,i) {return 1000 * (i + 1)})
-  .attr("r", 5);
+   }) 
+   .transition(t)
+   .attr("cx", function(d) { return hScale(minBehindFastest(d.Seconds)) })
+   .attr("r", 10);
   
   
   svg.selectAll('circle')
@@ -106,7 +107,9 @@ function MakeIt(ds) {
   .text( function(d) {
     return d.Name})
   
-  
+  svg.selectAll('circle')
+    .transition(t)
+  .attr('r', 6);
 
   function clearToolTip () {
     //console.log('ctt');
@@ -124,7 +127,7 @@ function MakeIt(ds) {
     
     $('#tt').empty();
     
-    $('#tt').fadeIn(1000).append("# " + place + "<br><strong> " + name + " </strong>" + "<br>  Year: " + year + "<br> Time: " + time +"<br>" + doping)
+    $('#tt').fadeIn(400).append("# " + place + "<br><strong> " + name + " </strong>" + "<br>  Year: " + year + "<br> Time: " + time +"<br>" + doping)
   
 }
   
